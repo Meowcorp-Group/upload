@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./index.css">
+
+	<title>Meowcorp Upload</title>
+	<meta name="description" content="Meowcorp file upload service.">
+	<meta name="og:title" content="Meowcorp Upload">
+	<meta name="og:description" content="Meowcorp file upload service.">
+
+</head>
+<body>
+	<h1>Meowcorp Upload</h1>
+
+	<noscript>
+		<p>JavaScript is required to use this application.</p>
+	</noscript>
+
+	<div class="progress-container">
+		<span>Capacity: </span>
+		<progress id="capacity" max="0" value="0"></progress>
+		<span id="capacity-text">0 / 0 GiB</span>
+	</div>
+
+	<script type="module" src="./main.ts"></script>
+</body>
+</html>

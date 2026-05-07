@@ -1,0 +1,9 @@
+html {
+	font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.progress-container {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
