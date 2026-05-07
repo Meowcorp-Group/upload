@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./index.css">
 
 	<title>Meowcorp Upload</title>
-	<meta name="description" content="Meowcorp file upload service.">
-	<meta name="og:title" content="Meowcorp Upload">
-	<meta name="og:description" content="Meowcorp file upload service.">
+	<meta property="description" content="Meowcorp file upload service.">
+	<meta property="og:title" content="Meowcorp Upload">
+	<meta property="og:description" content="Meowcorp file upload service.">
 
 </head>
+
 <body>
-	<h1>Meowcorp Upload</h1>
+	<main class="text-center">
+		<h1>Meowcorp Upload</h1>
 
-	<noscript>
-		<p>JavaScript is required to use this application.</p>
-	</noscript>
+		<noscript>
+			<h1>JavaScript is required to use this application.</h1>
+		</noscript>
 
-	<div class="progress-container">
-		<span>Capacity: </span>
-		<progress id="capacity" max="0" value="0"></progress>
-		<span id="capacity-text">0 / 0 GiB</span>
-	</div>
+		<div class="progress-container space-bottom">
+			<span>Capacity </span>
+			<progress id="capacity" max="0" value="0"></progress>
+			<span id="capacity-text">0 / 0 GiB</span>
+		</div>
+
+		<p>Persistent uploads up to 50 MiB</p>
+		<p class="space-bottom">Temporary uploads up to 500 MiB</p>
+
+		<section id="unauthenticated-section">
+			<p>Meowcorp Upload is currently invite-only.</p>
+			<button command="show-modal" commandfor="auth-dialog">Log in</button>
+		</section>
+
+		<section class="none" id="authenticated-section">
+			<p>Logged in as <span id="username"></span></p>
+			<button class="space-bottom" id="logout-button">Log out</button>
+			<p class="space-bottom">TEMPORARY RESTRICTION: Meowcorp Upload currently only acceps video/mp4 (H.264, AV1), video/webm (VP9, AV1), video/quicktime (H.264)</p>
+			<p>Select a file to upload:</p>
+			<input type="file" id="file-input">
+			<br>
+			<button id="upload-button">Upload</button>
+		</section>
+
+	</main>
+
+	<dialog id="auth-dialog">
+		<div class="auth-dialog-content">
+			<h2 class="text-center">Authenticate</h2>
+			<label>
+				<span>Token:</span>
+				<textarea id="auth-token-input" class="space-bottom" placeholder="JWT"></textarea>
+				<div>
+					<p id="auth-token-status">Enter a token...</p>
+					<p>Type: <span id="auth-token-type"></span></p>
+					<p>User: <span id="auth-token-user"></span></p>
+					<p>Expiration: <span id="auth-token-expiration"></span></p>
+				</div>
+				<div class="actions">
+					<button command="close" commandfor="auth-dialog">Cancel</button>
+					<button id="auth-button" command="authenticate" commandfor="auth-token-input" disabled>Authenticate</button>
+				</div>
+			</label>
+		</div>
+	</dialog>
 
 	<script type="module" src="./main.ts"></script>
 </body>
+
 </html>
