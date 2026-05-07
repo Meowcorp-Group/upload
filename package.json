@@ -11,5 +11,10 @@
   },
   "scripts": {
     "dev": "bun --env-file=.env src/index.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1044.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "jsonwebtoken": "^9.0.3"
   }
 }
